@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/images/lunch.ico">
+    <title>@ViewData["Title"] - WufFood</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/> 
+        <link rel="stylesheet" href="~/css/app.css" asp-append-version="true"/> 
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css"  asp-append-version="true"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css" />
+    </environment>
+</head>
+<body>
+   @RenderBody()
+</div>
+   
+    
+
+    <!-- <partial name="_CookieConsentPartial" /> -->
+
+    <!-- <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - WufFood</p>
+        </footer>
+    </div> -->
+
+    <environment include="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        @* <script src="~/js/site.js" asp-append-version="true"></script> 
+        <script src="~/lib/dx/js/dx.all.js" asp-append-version="true"></script>*@
+        <script src="~/js/app.js" asp-append-version="true" type="module"></script>
+        <!-- Dependencias -->
+        @* <script src="~/js/pages/clientes.js" asp-append-version="true"></script>
+        <script src="~/js/pages/servicios.js" asp-append-version="true"></script>
+        <script src="~/js/pages/pedidos.js" asp-append-version="true"></script> *@
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        @* <script src="~/js/site.js" asp-append-version="true"></script> *@
+        @* <script src="~/lib/dx/js/dx.all.js" asp-append-version="true"></script> *@
+
+        <!-- Dependencias -->
+        @* <script src="~/js/pages/clientes.js" asp-append-version="true"></script>
+        <script src="~/js/pages/servicios.js" asp-append-version="true"></script>
+        <script src="~/js/pages/pedidos.js" asp-append-version="true"></script> *@
+    </environment>
+    <script type="text/javascript">
+        var path = '@Url.Content("~/")';
+        $(".sidebar-dropdown > a").click(function() {
+          $(".sidebar-submenu").slideUp(200);
+          if ($(this).parent().hasClass("active")) {
+
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).parent().removeClass("active");
+
+          } else {
+
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).next(".sidebar-submenu").slideDown(200);
+            $(this).parent().addClass("active");
+
+          }
+        });
+        
+        $(document).click(function(e) 
+        {
+            var container = $(".page-wrapper");
+
+            // if the target of the click isn't the container nor a descendant of the container
+            if (container.is(e.target) && container.has(e.target).length === 0) 
+            {
+                $(".page-wrapper").removeClass("toggled");
+            }
+        });
+
+        $("#close-sidebar").click(function() {
+          $(".page-wrapper").removeClass("toggled");
+        });
+        $("#show-sidebar-2").click(function() {
+          $(".page-wrapper").addClass("toggled");
+        });       
+
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

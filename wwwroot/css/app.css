@@ -1,0 +1,36 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #2a2b3f; 
+  }
+#root{
+  
+   width: 100%;
+    padding: 20px;
+}
+
+.search-bar{
+    background-color: #0a0c1b;
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+    padding: 15px;
+    font-size: 17px;
+}
+
+.title{
+    color: #f9f9fe;
+    text-align: center;
+}
+
+.footer-bar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0a0c1b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
